@@ -3,9 +3,9 @@ name: Trivy
 on:
   push:
     branches:
-    - "main"
+      - "main"
   schedule:
-  - cron: '55 17 * * 5'
+    - cron: "55 17 * * 5"
 
 permissions:
   contents: read
@@ -13,20 +13,20 @@ permissions:
 jobs:
   image-scan:
     permissions:
-      contents: read  # for actions/checkout to fetch code
+      contents: read # for actions/checkout to fetch code
     name: Image Scan
     runs-on: ubuntu-22.04
     steps:
-    - name: Checkout code
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
-    - name: Build an image from Dockerfile
-      run: |
-        IMAGE=envoy-proxy/gateway-dev TAG=${{ github.sha }} make image
+      - name: Build an image from Dockerfile
+        run: |
+          IMAGE=envoy-proxy/gateway-dev TAG=${{ github.sha }} make image
 
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@b6643a29fecd7f34b3597bc6acb0a98b03d33ff8  # v0.33.1
-      with:
-        image-ref: envoy-proxy/gateway-dev:${{ github.sha }}
-        exit-code: '1'
-        ignore-unfixed: true
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@b6643a29fecd7f34b3597bc6acb0a98b03d33ff8 # v0.33.1
+        with:
+          image-ref: envoy-proxy/gateway-dev:${{ github.sha }}
+          exit-code: "1"
+          ignore-unfixed: true

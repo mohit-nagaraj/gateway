@@ -6,16 +6,16 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   parentRefs:
-  - name: same-namespace
+    - name: same-namespace
   hostnames: ["www.example.com"]
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /myapp              # This is the path that will be protected by ext auth
-    backendRefs:
-    - name: infra-backend-v1
-      port: 8080
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /myapp # This is the path that will be protected by ext auth
+      backendRefs:
+        - name: infra-backend-v1
+          port: 8080
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -24,16 +24,16 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   parentRefs:
-  - name: same-namespace
+    - name: same-namespace
   hostnames: ["www.example.com"]
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /public            # This is the path that will be public
-    backendRefs:
-    - name: infra-backend-v1
-      port: 8080
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /public # This is the path that will be public
+      backendRefs:
+        - name: infra-backend-v1
+          port: 8080
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: SecurityPolicy
@@ -42,9 +42,9 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   targetRefs:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    name: http-with-ext-auth
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: http-with-ext-auth
   extAuth:
     http:
       path: /auth

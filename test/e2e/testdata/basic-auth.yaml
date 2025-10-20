@@ -22,15 +22,15 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   parentRefs:
-  - name: same-namespace
+    - name: same-namespace
   rules:
-  - matches:
-    - path:
-        type: Exact
-        value: /basic-auth-1
-    backendRefs:
-    - name: infra-backend-v1
-      port: 8080
+    - matches:
+        - path:
+            type: Exact
+            value: /basic-auth-1
+      backendRefs:
+        - name: infra-backend-v1
+          port: 8080
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -39,15 +39,15 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   parentRefs:
-  - name: same-namespace
+    - name: same-namespace
   rules:
-  - matches:
-    - path:
-        type: Exact
-        value: /basic-auth-2
-    backendRefs:
-    - name: infra-backend-v1
-      port: 8080
+    - matches:
+        - path:
+            type: Exact
+            value: /basic-auth-2
+      backendRefs:
+        - name: infra-backend-v1
+          port: 8080
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -56,15 +56,15 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   parentRefs:
-  - name: same-namespace
+    - name: same-namespace
   rules:
-  - matches:
-    - path:
-        type: Exact
-        value: /no-basic-auth
-    backendRefs:
-    - name: infra-backend-v1
-      port: 8080
+    - matches:
+        - path:
+            type: Exact
+            value: /no-basic-auth
+      backendRefs:
+        - name: infra-backend-v1
+          port: 8080
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: SecurityPolicy
@@ -73,9 +73,9 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   targetRefs:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    name: http-with-basic-auth-1
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: http-with-basic-auth-1
   basicAuth:
     users:
       name: "basic-auth-users-secret-1"
@@ -87,9 +87,9 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   targetRefs:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    name: http-with-basic-auth-2
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: http-with-basic-auth-2
   basicAuth:
     users:
       name: "basic-auth-users-secret-2"
@@ -109,15 +109,15 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   parentRefs:
-  - name: same-namespace
+    - name: same-namespace
   rules:
-  - matches:
-    - path:
-        type: Exact
-        value: /basic-auth-3
-    backendRefs:
-    - name: infra-backend-v1
-      port: 8080
+    - matches:
+        - path:
+            type: Exact
+            value: /basic-auth-3
+      backendRefs:
+        - name: infra-backend-v1
+          port: 8080
 ---
 apiVersion: gateway.envoyproxy.io/v1alpha1
 kind: SecurityPolicy
@@ -126,9 +126,9 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   targetRefs:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    name: http-with-basic-auth-3
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      name: http-with-basic-auth-3
   basicAuth:
     users:
       name: "basic-auth-users-secret-3"

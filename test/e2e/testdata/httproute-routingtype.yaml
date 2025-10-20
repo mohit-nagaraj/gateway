@@ -14,12 +14,12 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   parentRefs:
-  - name: same-namespace
+    - name: same-namespace
   rules:
-  - matches:
-    - path:
-        type: PathPrefix
-        value: /to-cluster-ip
-    backendRefs:
-    - name: infra-backend-v1
-      port: 8080
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /to-cluster-ip
+      backendRefs:
+        - name: infra-backend-v1
+          port: 8080

@@ -5,46 +5,46 @@ metadata:
   namespace: gateway-conformance-infra
 spec:
   hostnames:
-  - multireferencegrant.local
+    - multireferencegrant.local
   parentRefs:
-  - group: gateway.networking.k8s.io
-    kind: Gateway
-    name: same-namespace
-    namespace: gateway-conformance-infra
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: same-namespace
+      namespace: gateway-conformance-infra
   rules:
-  - backendRefs:
-    - group: ""
-      kind: Service
-      name: app-backend-v3
-      namespace: multireferencegrants-ns
-      port: 8080
-      weight: 1
-    matches:
-    - path:
-        type: PathPrefix
-        value: /v3/echo
-  - backendRefs:
-    - group: ""
-      kind: Service
-      name: app-backend-v2
-      namespace: multireferencegrants-ns
-      port: 8080
-      weight: 1
-    matches:
-    - path:
-        type: PathPrefix
-        value: /v2/echo
-  - backendRefs:
-    - group: ""
-      kind: Service
-      name: app-backend-v1
-      namespace: multireferencegrants-ns
-      port: 8080
-      weight: 1
-    matches:
-    - path:
-        type: PathPrefix
-        value: /v1/echo
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: app-backend-v3
+          namespace: multireferencegrants-ns
+          port: 8080
+          weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /v3/echo
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: app-backend-v2
+          namespace: multireferencegrants-ns
+          port: 8080
+          weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /v2/echo
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: app-backend-v1
+          namespace: multireferencegrants-ns
+          port: 8080
+          weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /v1/echo
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant
@@ -53,13 +53,13 @@ metadata:
   namespace: multireferencegrants-ns
 spec:
   from:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    namespace: gateway-conformance-infra
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: gateway-conformance-infra
   to:
-  - group: ""
-    kind: Service
-    name: app-backend-v1
+    - group: ""
+      kind: Service
+      name: app-backend-v1
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant
@@ -68,13 +68,13 @@ metadata:
   namespace: multireferencegrants-ns
 spec:
   from:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    namespace: gateway-conformance-infra
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: gateway-conformance-infra
   to:
-  - group: ""
-    kind: Service
-    name: app-backend-v2
+    - group: ""
+      kind: Service
+      name: app-backend-v2
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant
@@ -83,10 +83,10 @@ metadata:
   namespace: multireferencegrants-ns
 spec:
   from:
-  - group: gateway.networking.k8s.io
-    kind: HTTPRoute
-    namespace: gateway-conformance-infra
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      namespace: gateway-conformance-infra
   to:
-  - group: ""
-    kind: Service
-    name: app-backend-v3
+    - group: ""
+      kind: Service
+      name: app-backend-v3

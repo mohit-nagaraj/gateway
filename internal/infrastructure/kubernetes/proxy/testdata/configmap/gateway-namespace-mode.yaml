@@ -15,7 +15,7 @@ metadata:
   name: gateway-1
   namespace: ns1
   ownerReferences:
-  - apiVersion: gateway.networking.k8s.io/v1
-    kind: Gateway
-    name: gateway-1
-    uid: test-owner-reference-uid-for-gateway
+    - apiVersion: gateway.networking.k8s.io/v1
+      kind: Gateway
+      name: gateway-1
+      uid: test-owner-reference-uid-for-gateway

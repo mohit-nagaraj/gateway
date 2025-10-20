@@ -10,19 +10,19 @@ metadata:
   name: foo
   namespace: envoy-gateway-system
   ownerReferences:
-  - apiVersion: gateway.networking.k8s.io/v1
-    kind: GatewayClass
-    name: envoy-gateway-class
-    uid: test-owner-reference-uid-for-gatewayclass
+    - apiVersion: gateway.networking.k8s.io/v1
+      kind: GatewayClass
+      name: envoy-gateway-class
+      uid: test-owner-reference-uid-for-gatewayclass
 spec:
   maxReplicas: 1
   metrics:
-  - resource:
-      name: cpu
-      target:
-        averageUtilization: 80
-        type: Utilization
-    type: Resource
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 80
+          type: Utilization
+      type: Resource
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment

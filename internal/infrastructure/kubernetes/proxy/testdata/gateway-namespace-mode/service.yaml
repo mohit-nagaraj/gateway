@@ -11,21 +11,21 @@ metadata:
   name: gateway-1
   namespace: namespace-1
   ownerReferences:
-  - apiVersion: gateway.networking.k8s.io/v1
-    kind: Gateway
-    name: gateway-1
-    uid: test-owner-reference-uid-for-gateway
+    - apiVersion: gateway.networking.k8s.io/v1
+      kind: Gateway
+      name: gateway-1
+      uid: test-owner-reference-uid-for-gateway
 spec:
   externalTrafficPolicy: Local
   ports:
-  - name: EnvoyHTTPPort
-    port: 0
-    protocol: TCP
-    targetPort: 8080
-  - name: EnvoyHTTPSPort
-    port: 0
-    protocol: TCP
-    targetPort: 8443
+    - name: EnvoyHTTPPort
+      port: 0
+      protocol: TCP
+      targetPort: 8080
+    - name: EnvoyHTTPSPort
+      port: 0
+      protocol: TCP
+      targetPort: 8443
   selector:
     app.kubernetes.io/component: proxy
     app.kubernetes.io/managed-by: envoy-gateway
@@ -51,21 +51,21 @@ metadata:
   name: gateway-2
   namespace: namespace-2
   ownerReferences:
-  - apiVersion: gateway.networking.k8s.io/v1
-    kind: Gateway
-    name: gateway-2
-    uid: test-owner-reference-uid-for-gateway
+    - apiVersion: gateway.networking.k8s.io/v1
+      kind: Gateway
+      name: gateway-2
+      uid: test-owner-reference-uid-for-gateway
 spec:
   externalTrafficPolicy: Local
   ports:
-  - name: EnvoyHTTPPort
-    port: 0
-    protocol: TCP
-    targetPort: 8080
-  - name: EnvoyHTTPSPort
-    port: 0
-    protocol: TCP
-    targetPort: 8443
+    - name: EnvoyHTTPPort
+      port: 0
+      protocol: TCP
+      targetPort: 8080
+    - name: EnvoyHTTPSPort
+      port: 0
+      protocol: TCP
+      targetPort: 8443
   selector:
     app.kubernetes.io/component: proxy
     app.kubernetes.io/managed-by: envoy-gateway

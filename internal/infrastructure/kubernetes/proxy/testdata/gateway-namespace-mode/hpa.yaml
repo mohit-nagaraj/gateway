@@ -11,19 +11,19 @@ metadata:
   name: gateway-1
   namespace: namespace-1
   ownerReferences:
-  - apiVersion: gateway.networking.k8s.io/v1
-    kind: Gateway
-    name: gateway-1
-    uid: test-owner-reference-uid-for-gateway
+    - apiVersion: gateway.networking.k8s.io/v1
+      kind: Gateway
+      name: gateway-1
+      uid: test-owner-reference-uid-for-gateway
 spec:
   maxReplicas: 3
   metrics:
-  - resource:
-      name: cpu
-      target:
-        averageUtilization: 80
-        type: Utilization
-    type: Resource
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 80
+          type: Utilization
+      type: Resource
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
@@ -46,19 +46,19 @@ metadata:
   name: gateway-2
   namespace: namespace-2
   ownerReferences:
-  - apiVersion: gateway.networking.k8s.io/v1
-    kind: Gateway
-    name: gateway-2
-    uid: test-owner-reference-uid-for-gateway
+    - apiVersion: gateway.networking.k8s.io/v1
+      kind: Gateway
+      name: gateway-2
+      uid: test-owner-reference-uid-for-gateway
 spec:
   maxReplicas: 3
   metrics:
-  - resource:
-      name: cpu
-      target:
-        averageUtilization: 80
-        type: Utilization
-    type: Resource
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 80
+          type: Utilization
+      type: Resource
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1

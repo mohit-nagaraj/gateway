@@ -1,0 +1,11 @@
+printWidth: 120
+tabWidth: 2
+useTabs: false
+overrides:
+  - files: "*.yaml"
+    options:
+      parser: yaml
+  - files: "*.yml"
+    options:
+      parser: yaml
+
